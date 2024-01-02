@@ -27,7 +27,7 @@
 
         h2 {
             text-align: center;
-            margin-top: 0; /* Ajusta este valor según tus preferencias */
+            margin-top: 0; /* Ajusta este valor segÃºn tus preferencias */
         }
 
         p {
@@ -38,7 +38,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 10px; /* Ajusta este valor según tus preferencias */
+            margin-top: 10px; /* Ajusta este valor segÃºn tus preferencias */
         }
 
 .capturas{
@@ -102,5 +102,45 @@ margin-bottom: 10px;
 </div>
 
 
+<form id="comment-form">
+    <label for="comment">Deja tu comentario:</label><br>
+    <textera id="comment" name="comment" rows="4" cold="50"></textera><br>
+    <button type="button" onclick="submitComment()">Enviar Comentario</button>
+</form>
+    <div id="comments">
+        <h3>Comentarios existentes:</h3>
+        <p>no hay comentarios</p>
+    </div>
+
+    <script>
+        function submitComment(){var commentText = document.getElementByid("comment").value;
+
+                                 var issueTitle = "Nuevo Comentario";
+                                 var issueBody = commentText;
+                                 fetch("https://api.github.com/repos/Untitled917/Untitled.github.io/issues", {
+                                     method: "POST", headers:Â¨{
+                                         "Authorization": "sosa",
+                                             "Content-type" : "application/json",},
+                                             body: JSON.stringify({ title: issueTitle,
+                                                                   body: issueBody.}),})
+        .then(responde => responde.json()))
+        .then(data => {
+            document.getElementByid("coments").innerHTMl += "<p>" + comentText + "</p>";
+        {)
+            .catch(error => console.error("Error:", error));}
+
+        fetch("https://api.github.com/repos/Untitled917/Untitled.github.io/issues")
+            .then(responde => responde.json())
+            .then(data => {
+
+                data.forEarch(function(issue))
+            }
+                 document.getElementByid(comments).innerHTL += "<p>" + issue.body + "</p>";
+        
+        });
+        })
+        .catch(error => console.error("Error:", error));
+    </script>
+    
 </body>
 </html>
