@@ -113,56 +113,40 @@ margin-bottom: 10px;
     <h3>Comentarios existentes:</h3>
 </div>
 
+
+
+    <form id="comment-form">
+    <label for="comment">Deja tu comentario:</label><br>
+    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    <button type="button" onclick="submitComment()">Enviar Comentario</button>
+</form>
+
+<!-- Muestra los comentarios existentes -->
+<div id="comments">
+    <h3>Comentarios existentes:</h3>
+</div>
+
 <script>
-// Función para enviar comentarios a GitHub Issues
 function submitComment() {
     var commentText = document.getElementById("comment").value;
 
-    // Puedes personalizar la etiqueta y título según tus necesidades
-    var issueTitle = "Nuevo Comentario";
-    var issueBody = commentText;
+    // Agrega el nuevo comentario al archivo de comentarios
+    var commentsDiv = document.getElementById("comments");
+    commentsDiv.innerHTML += "<p>" + commentText + "</p>";
 
-    // Crea un nuevo problema (issue) en GitHub
-    fetch('https://api.github.com/repos/TU_USUARIO/TU_REPOSITORIO/issues', {
-        method: 'POST',
-        headers: {
-            'Authorization': 'sosa', // Reemplaza con tu token de acceso de GitHub
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            title: issueTitle,
-            body: issueBody,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Recarga los comentarios después de agregar uno nuevo
-        loadComments();
-    })
-    .catch(error => console.error('Error:', error));
+    // Limpia el Ã¡rea de texto despuÃ©s de enviar el comentario
+    document.getElementById("comment").value = "100";
 }
 
-// Función para cargar comentarios existentes de GitHub Issues
-function loadComments() {
-    fetch('https://api.github.com/repos/Untitled917/Untitled.gitub.io/issues')
-        .then(response => response.json())
-        .then(data => {
-            // Muestra los comentarios existentes
-            var commentsDiv = document.getElementById("comments");
-            commentsDiv.innerHTML = "<h3>Comentarios existentes:</h3>";
-
-            data.forEach(function(issue) {
-                commentsDiv.innerHTML += "<p>" + issue.body + "</p>";
-            });
-        })
-        .catch(error => console.error('Error:', error));
-}
-
-// Carga los comentarios al cargar la página
+// Carga los comentarios al cargar la pÃ¡gina (puedes agregar comentarios predeterminados aquÃ­)
 document.addEventListener('DOMContentLoaded', function() {
     loadComments();
 });
-</script>.
+
+function loadComments() {
+    // Puedes cargar comentarios predeterminados aquÃ­ si lo deseas
+}
+</script>
     
 </body>
 </html>
