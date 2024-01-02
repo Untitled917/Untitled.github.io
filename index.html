@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +8,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 10vh;
             margin: 0;
         }
@@ -28,7 +26,7 @@
 
         h2 {
             text-align: center;
-            margin-top: 0; /* Ajusta este valor según tus preferencias */
+            margin-top: 0; /* Ajusta este valor seg tus preferencias */
         }
 
         p {
@@ -39,7 +37,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 10px; /* Ajusta este valor según tus preferencias */
+            margin-top: 10px; /* Ajusta este valor seg tus preferencias */
         }
 
 .capturas{
@@ -48,7 +46,7 @@ justify-content: center;
 align-items: center;
 flex-wrap: wrap;
 margin-top: 400px;
-
+margin-left: -600px;
 }
 
 .captura{
@@ -66,28 +64,10 @@ margin-bottom: 10px;
 }
 
 
-nav{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-        nav a{
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#descargas">Descargas</a>
-        <a href="#capturas">Capturas</a>
-    </nav>
     <section>
         <div style="display: flex; flex-direction: row-reverse; align-items: center;">
             <p style="margin-right: 10px;">Peso Del Juego: 87 MB<br>Accion / Zombie / 2D</p>
@@ -95,12 +75,12 @@ nav{
             <img src="icono.png" width="100" height="100">
         </div>
     </section>
-<section id="descargas">
+
     <a href="Untitled Beta.zip" download>
         <button>Descargar</button>
     </a>
-</section>
-    <section id="capturas" class="capturas">
+
+<div class="capturas">
 <div class="captura">
 <img src="imagen1.png" alt="captura 1">
 </div>
@@ -118,7 +98,8 @@ nav{
 <div class="captura">
 <img src="imagen5.png" alt="captura5">
 </div>
-    </section>
+</div>
+
 
 
     
