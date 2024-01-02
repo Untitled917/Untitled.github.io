@@ -102,51 +102,24 @@ margin-bottom: 10px;
 </div>
 
 
-<form id="comment-form">
-    <label for="comment">Deja tu comentario:</label><br>
-    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
-    <button type="button" onclick="submitComment()">Enviar Comentario</button>
-</form>
-
-<!-- Muestra los comentarios existentes -->
-<div id="comments">
-    <h3>Comentarios existentes:</h3>
-</div>
-
-
-
-    <form id="comment-form">
-    <label for="comment">Deja tu comentario:</label><br>
-    <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
-    <button type="button" onclick="submitComment()">Enviar Comentario</button>
-</form>
-
-<!-- Muestra los comentarios existentes -->
-<div id="comments">
-    <h3>Comentarios existentes:</h3>
-</div>
-
+<div id="disqus_thread"></div>
 <script>
-function submitComment() {
-    var commentText = document.getElementById("comment").value;
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+    };
 
-    // Agrega el nuevo comentario al archivo de comentarios
-    var commentsDiv = document.getElementById("comments");
-    commentsDiv.innerHTML += "<p>" + commentText + "</p>";
-
-    // Limpia el Ã¡rea de texto despuÃ©s de enviar el comentario
-    document.getElementById("comment").value = "100";
-}
-
-// Carga los comentarios al cargar la pÃ¡gina (puedes agregar comentarios predeterminados aquÃ­)
-document.addEventListener('DOMContentLoaded', function() {
-    loadComments();
-});
-
-function loadComments() {
-    // Puedes cargar comentarios predeterminados aquÃ­ si lo deseas
-}
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://untitled-11.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+<noscript>
+    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
     
 </body>
 </html>
